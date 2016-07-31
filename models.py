@@ -60,7 +60,7 @@ questions = {
     "q3": Question("Select games you would like to play on your phone",multi,["Anything is fine","Candy Crush","Temple Run","Pokemon Go","Paper Toss"],"q4"),
     "q4": Question("Do you check emails and services like whatsapp",single,yns,"q5"),
     "q5": Question("Do you listen to music on phone?",single,yns,"q6"),
-    "q6": Question("How do you usually listen music",multi,["FM Radio,youtube,music streaming apps like saavn,songs on my mobile"],q7)
+    "q6": Question("How do you usually listen music",multi,["FM Radio,youtube,music streaming apps like saavn,songs on my mobile"],"q7"),
     "q7": Question("Do you watch movies on your phone?",single,yns,"q8"),
     "q8": Question("How do you watch movies",multi,["store movies on phone","online streaming as youtube"],"q9"),
     "q9": Question("Do you take photos with phone",single,yns,"q10"),
@@ -133,9 +133,9 @@ def genRand(num):
     products = {}
     for i in range(0,num):
         pid = i
-        os = getrOS() # get random OS
-        brand = getrBrand(os) 
-        name = genName(os,brand)
+        # os = getrOS() # get random OS
+        # brand = getrBrand(os) 
+        # name = genName(os,brand)
         price = getrPrice()
         ram = getrRam() # in GB
         battery = getrBattery() # in mAH
