@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-from models import questions
+from models import questions, products
 import json
 
 app = Flask(__name__)
@@ -16,6 +16,8 @@ def shutdown_session(exception=None):
 def home():
 	qid = "q1"
 	question = questions[qid]
+	for product in products:
+		print product
 
 	return render_template('index.html', question=question, qid=qid, prev_answers=json.dumps({}))
 

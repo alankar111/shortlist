@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from database import Base
 import random
+import json
 
 # class Question(Base):
 #     __tablename__ = 'questions'
@@ -93,6 +94,23 @@ class Product(object):
         self.pCamRes = pCamRes
         self.cores = cores
 
+    def __str__(self):
+        to_return = {}
+        to_return['pid'] = self.pid
+        to_return['os'] = self.os
+        to_return['brand'] = self.brand
+        to_return['name'] = self.name
+        to_return['price'] = self.price
+        to_return['ram'] = self.ram
+        to_return['battery'] = self.battery
+        to_return['screenRes'] = self.screenRes
+        to_return['pType'] = self.pType # phone type
+        to_return['sims'] = self.sims # number of sims
+        to_return['sCamRes'] = self.sCamRes
+        to_return['pCamRes'] = self.pCamRes
+        to_return['cores'] = self.cores
+        return json.dumps(to_return)        
+
 
 ########################### QUESTIONS ######################################
 
@@ -130,12 +148,12 @@ brandsDict = {
 # (pid,os,brand,name,price,ram,battery,screenRes,pType,sims,sCamRes,pCamRes,cores):
 
 def genRand(num):
-    products = {}
+    products = []
     for i in range(0,num):
         pid = i
-        # os = getrOS() # get random OS
-        # brand = getrBrand(os) 
-        # name = genName(os,brand)
+        os = getrOS() # get random OS
+        brand = getrBrand(os) 
+        name = genName(os,brand)
         price = getrPrice()
         ram = getrRam() # in GB
         battery = getrBattery() # in mAH
@@ -178,7 +196,7 @@ def getrRes():
 def getrSims():
     return random.randint(1,4)
 
-def getrsScamRes(): #gives float between 2 and 8 MP
+def getrsCamRes(): #gives float between 2 and 8 MP
     return random.randint(20,80)/10
 
 def getrpCamRes():#gives float between 4 and 16 MP
