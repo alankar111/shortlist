@@ -34,8 +34,8 @@ class Question(object):
         
 
 questions = {
-    "q1": Question("Choose your price range","picker",None)
-    "q2": Question("Do you want to play games on your phone","single",["Yes","No","Maybe"])
+    "q1": Question("Choose your price range","picker",None),
+    "q2": Question("Do you want to play games on your phone","single",["Yes","No","Maybe"]),
     "q3": Question("Select games you would like to play on your phone","multi",["Anything is fine","Candy Crush","Temple Run","Pokemon Go","Paper Toss"])
 
 }

@@ -50,12 +50,12 @@
       <div class="question-container">
         <p class=question-text> {{ question.statement }} </p>
         <form>
-          {% if question.type == "picker" %}
+          {% if question.qtype == "picker" %}
             <div class="form-group">
               <input type="text" class="form-control" id="amount" placeholder="Amount">
             </div>
 
-          {% elif question.type == "multi" %}  
+          {% elif question.qtype == "multi" %}  
           
             <div class="checkbox">
               <label>
