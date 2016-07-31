@@ -13,11 +13,12 @@ def shutdown_session(exception=None):
 
 @app.route('/')
 def home():
-	question = questions["q1"]
-	return render_template('index.html', question=question)
-    # return "Hello World!"
+	qid = "q1"
+	question = questions[qid]
 
-@app.route('/<id>')
+	return render_template('index.html', question=question, qid=qid)
+
+@app.route('/<id>', methods=['POST'])
 def next_question(id):
 	prev_answers = {}#request.form['prev_answers']
 	question = questions[id]
@@ -25,12 +26,12 @@ def next_question(id):
 	cur_question = question
 	
 	while cur_question.nextq is not None:
+		qid = cur_question.nextq
 		cur_question = questions[cur_question.nextq]
 		if should_ask_question(cur_question, prev_answers):
-			return render_template('index.html', question=cur_question, prev_answers=prev_answers)
+			return render_template('index.html', question=cur_question, qid=qid, prev_answers=prev_answers)
 
 	return render_template('results.html')
 	
-
 def should_ask_question(id, prev_answers):
 	return True

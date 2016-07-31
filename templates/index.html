@@ -49,47 +49,31 @@
     <div class="col-md-6 col-md-offset-3">
       <div class="question-container">
         <p class=question-text> {{ question.statement }} </p>
-        <form>
+        <form id="question-form" action="/{{ qid }}" method="POST">
           {% if question.qtype == "picker" %}
             <div class="form-group">
               <input type="text" class="form-control" id="amount" placeholder="Amount">
             </div>
 
           {% elif question.qtype == "multi" %}  
-          
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value="">
-                Option one is this and that&mdash;be sure to include why it's great
-              </label>
-            </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value="">
-                Option two
-              </label>
-            </div>
+            {% for option in question.getOptions() %}
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="{{ option }}">
+                  {{ option }}
+                </label>
+              </div>
+            {% endfor %}
 
           {% else %}
-
-            <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-                Option one is this and that&mdash;be sure to include why it's great
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                Option two can be something else and selecting it will deselect option one
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                Option three
-              </label>
-            </div>
+            {% for option in question.getOptions() %}
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadios" id="{{ option }}" value="{{ option }}">
+                  {{ option }}
+                </label>
+              </div>
+            {% endfor %}
 
           {% endif %}
 
