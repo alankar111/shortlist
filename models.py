@@ -61,7 +61,7 @@ questions = {
     "q5": Question("Do you listen to music on phone?","single",yns,"q6"),
     "q6": Question("Do you watch movies on your phone?","single",yns,"q7"),
     "q7": Question("How do you watch movies","multi",["store movies on phone","online streaming as youtube"],"q8"),
-    "q8": Question("Do you take photos with phone","multi",yns,"q9"),
+    "q8": Question("Do you take photos with phone","single",yns,"q9"),
     "q9": Question("Do you use internet on your phone","single",yns,"q10"),
     "q10": Question("What apps do you use internet for","multi",["Service apps such as Ola, Uber, Zomato, Swiggy","Social network apps like twitter, fb","general web browsing","other apps"],"q11"),
     "q11": Question("Do you need more than one sim compulsorily","single",yna,"q12"),
