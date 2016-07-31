@@ -151,15 +151,15 @@ def genRand(num):
     return products
 
 def getrOS():
-    return random(os)
+    return random.choice(os)
 
 def getrBrand(os):
     brands = brandsDict[os]
-    return random(brands)
+    return random.choice(brands)
 
 tackyNames = ["Aqua","Baba","Chacha","Dadi","Eel","Filmy","Eco","Gandu","Halwa","Insaan","Jacky","Khan"]
 def genName(os,brand):
-    return random(tackyNames)
+    return random.choice(tackyNames)
 
 def getrPrice():
     return random.randint(6000,80000)
@@ -173,12 +173,11 @@ def getrBattery():
 
 resTypes = ["HD","HD+","HQVGA","HVGA","nHD","Quad HD"]
 def getrRes():
-    return random(resTypes)
+    return random.choice(resTypes)
 
 def getrSims():
     return random.randint(1,4)
 
-# 
 def getrsScamRes(): #gives float between 2 and 8 MP
     return random.randint(20,80)/10
 
@@ -186,7 +185,7 @@ def getrpCamRes():#gives float between 4 and 16 MP
     return random.randint(40,160)/10
 
 def getrCores():
-    return random([1,2,4])
+    return random.choice([1,2,4])
 
 products = genRand(100);
 
